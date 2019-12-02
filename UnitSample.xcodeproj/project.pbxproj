@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B27CA787238FC263009C5570 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27CA786238FC263009C5570 /* UserModel.swift */; };
+		B27CA789238FD0B6009C5570 /* ActivityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27CA788238FD0B6009C5570 /* ActivityModel.swift */; };
 		B2C9ADE5238D424C00CC4360 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C9ADE4238D424C00CC4360 /* AppDelegate.swift */; };
 		B2C9ADE7238D424C00CC4360 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C9ADE6238D424C00CC4360 /* SceneDelegate.swift */; };
 		B2C9ADE9238D424C00CC4360 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C9ADE8238D424C00CC4360 /* ViewController.swift */; };
@@ -16,6 +18,17 @@
 		B2C9ADF4238D424F00CC4360 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2C9ADF2238D424F00CC4360 /* LaunchScreen.storyboard */; };
 		B2C9ADFF238D424F00CC4360 /* UnitSampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C9ADFE238D424F00CC4360 /* UnitSampleTests.swift */; };
 		B2C9AE0A238D424F00CC4360 /* UnitSampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C9AE09238D424F00CC4360 /* UnitSampleUITests.swift */; };
+		B2C9AE1C238D444400CC4360 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C9AE18238D444400CC4360 /* User+CoreDataClass.swift */; };
+		B2C9AE1D238D444400CC4360 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C9AE19238D444400CC4360 /* User+CoreDataProperties.swift */; };
+		B2C9AE1E238D444400CC4360 /* Activities+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C9AE1A238D444400CC4360 /* Activities+CoreDataClass.swift */; };
+		B2C9AE1F238D444400CC4360 /* Activities+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C9AE1B238D444400CC4360 /* Activities+CoreDataProperties.swift */; };
+		B2C9AE21238D449800CC4360 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C9AE20238D449800CC4360 /* CoreDataManager.swift */; };
+		B2C9AE25238D48E800CC4360 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C9AE24238D48E800CC4360 /* HttpClient.swift */; };
+		B2C9AE27238D48ED00CC4360 /* PasswordChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C9AE26238D48ED00CC4360 /* PasswordChecker.swift */; };
+		B2C9AE29238D48F300CC4360 /* HttpClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C9AE28238D48F300CC4360 /* HttpClientTests.swift */; };
+		B2C9AE2B238D48F600CC4360 /* MockURLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C9AE2A238D48F600CC4360 /* MockURLSessionDataTask.swift */; };
+		B2C9AE2D238D48F900CC4360 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C9AE2C238D48F900CC4360 /* MockURLSession.swift */; };
+		B2C9AE2F238D48FE00CC4360 /* PasswordCheckerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C9AE2E238D48FE00CC4360 /* PasswordCheckerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B27CA786238FC263009C5570 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		B27CA788238FD0B6009C5570 /* ActivityModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityModel.swift; sourceTree = "<group>"; };
 		B2C9ADE1238D424C00CC4360 /* UnitSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnitSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2C9ADE4238D424C00CC4360 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2C9ADE6238D424C00CC4360 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +66,18 @@
 		B2C9AE05238D424F00CC4360 /* UnitSampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitSampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2C9AE09238D424F00CC4360 /* UnitSampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitSampleUITests.swift; sourceTree = "<group>"; };
 		B2C9AE0B238D424F00CC4360 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B2C9AE17238D442100CC4360 /* 1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = 1.xcdatamodel; sourceTree = "<group>"; };
+		B2C9AE18238D444400CC4360 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B2C9AE19238D444400CC4360 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B2C9AE1A238D444400CC4360 /* Activities+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Activities+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B2C9AE1B238D444400CC4360 /* Activities+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Activities+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B2C9AE20238D449800CC4360 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		B2C9AE24238D48E800CC4360 /* HttpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
+		B2C9AE26238D48ED00CC4360 /* PasswordChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordChecker.swift; sourceTree = "<group>"; };
+		B2C9AE28238D48F300CC4360 /* HttpClientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpClientTests.swift; sourceTree = "<group>"; };
+		B2C9AE2A238D48F600CC4360 /* MockURLSessionDataTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockURLSessionDataTask.swift; sourceTree = "<group>"; };
+		B2C9AE2C238D48F900CC4360 /* MockURLSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
+		B2C9AE2E238D48FE00CC4360 /* PasswordCheckerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordCheckerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,14 +128,19 @@
 		B2C9ADE3238D424C00CC4360 /* UnitSample */ = {
 			isa = PBXGroup;
 			children = (
+				B2C9AE23238D44B500CC4360 /* CoreData */,
 				B2C9ADE4238D424C00CC4360 /* AppDelegate.swift */,
 				B2C9ADE6238D424C00CC4360 /* SceneDelegate.swift */,
 				B2C9ADE8238D424C00CC4360 /* ViewController.swift */,
+				B2C9AE24238D48E800CC4360 /* HttpClient.swift */,
+				B2C9AE26238D48ED00CC4360 /* PasswordChecker.swift */,
 				B2C9ADEA238D424C00CC4360 /* Main.storyboard */,
 				B2C9ADF0238D424F00CC4360 /* Assets.xcassets */,
 				B2C9ADF2238D424F00CC4360 /* LaunchScreen.storyboard */,
 				B2C9ADF5238D424F00CC4360 /* Info.plist */,
 				B2C9ADED238D424C00CC4360 /* UnitSample.xcdatamodeld */,
+				B27CA786238FC263009C5570 /* UserModel.swift */,
+				B27CA788238FD0B6009C5570 /* ActivityModel.swift */,
 			);
 			path = UnitSample;
 			sourceTree = "<group>";
@@ -116,6 +148,10 @@
 		B2C9ADFD238D424F00CC4360 /* UnitSampleTests */ = {
 			isa = PBXGroup;
 			children = (
+				B2C9AE2E238D48FE00CC4360 /* PasswordCheckerTests.swift */,
+				B2C9AE2C238D48F900CC4360 /* MockURLSession.swift */,
+				B2C9AE28238D48F300CC4360 /* HttpClientTests.swift */,
+				B2C9AE2A238D48F600CC4360 /* MockURLSessionDataTask.swift */,
 				B2C9ADFE238D424F00CC4360 /* UnitSampleTests.swift */,
 				B2C9AE00238D424F00CC4360 /* Info.plist */,
 			);
@@ -129,6 +165,18 @@
 				B2C9AE0B238D424F00CC4360 /* Info.plist */,
 			);
 			path = UnitSampleUITests;
+			sourceTree = "<group>";
+		};
+		B2C9AE23238D44B500CC4360 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				B2C9AE20238D449800CC4360 /* CoreDataManager.swift */,
+				B2C9AE18238D444400CC4360 /* User+CoreDataClass.swift */,
+				B2C9AE19238D444400CC4360 /* User+CoreDataProperties.swift */,
+				B2C9AE1A238D444400CC4360 /* Activities+CoreDataClass.swift */,
+				B2C9AE1B238D444400CC4360 /* Activities+CoreDataProperties.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,10 +310,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2C9AE25238D48E800CC4360 /* HttpClient.swift in Sources */,
+				B2C9AE1E238D444400CC4360 /* Activities+CoreDataClass.swift in Sources */,
 				B2C9ADE9238D424C00CC4360 /* ViewController.swift in Sources */,
 				B2C9ADEF238D424C00CC4360 /* UnitSample.xcdatamodeld in Sources */,
+				B2C9AE27238D48ED00CC4360 /* PasswordChecker.swift in Sources */,
+				B2C9AE1D238D444400CC4360 /* User+CoreDataProperties.swift in Sources */,
 				B2C9ADE5238D424C00CC4360 /* AppDelegate.swift in Sources */,
 				B2C9ADE7238D424C00CC4360 /* SceneDelegate.swift in Sources */,
+				B2C9AE21238D449800CC4360 /* CoreDataManager.swift in Sources */,
+				B2C9AE1F238D444400CC4360 /* Activities+CoreDataProperties.swift in Sources */,
+				B27CA787238FC263009C5570 /* UserModel.swift in Sources */,
+				B27CA789238FD0B6009C5570 /* ActivityModel.swift in Sources */,
+				B2C9AE1C238D444400CC4360 /* User+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,6 +330,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2C9AE2D238D48F900CC4360 /* MockURLSession.swift in Sources */,
+				B2C9AE2B238D48F600CC4360 /* MockURLSessionDataTask.swift in Sources */,
+				B2C9AE2F238D48FE00CC4360 /* PasswordCheckerTests.swift in Sources */,
+				B2C9AE29238D48F300CC4360 /* HttpClientTests.swift in Sources */,
 				B2C9ADFF238D424F00CC4360 /* UnitSampleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -599,6 +660,7 @@
 		B2C9ADED238D424C00CC4360 /* UnitSample.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				B2C9AE17238D442100CC4360 /* 1.xcdatamodel */,
 				B2C9ADEE238D424C00CC4360 /* UnitSample.xcdatamodel */,
 			);
 			currentVersion = B2C9ADEE238D424C00CC4360 /* UnitSample.xcdatamodel */;
