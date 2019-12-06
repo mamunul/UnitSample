@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import Sample
+@testable import UnitSample
 
 class PasswordCheckerTests: XCTestCase {
 

@@ -7,7 +7,7 @@
 //
 
 import Foundation
-@testable import Sample
+@testable import UnitSample
 
 class MockURLSessionDataTask: URLSessionDataTaskProtocol {
     private (set) var resumeWasCalled = false
