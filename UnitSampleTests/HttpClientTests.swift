@@ -60,7 +60,7 @@ class HttpClientTests: XCTestCase {
             actualData = data
         }
         
-        XCTAssertNil(actualData)
+        XCTAssertNotNil(actualData)
     }
 
     override func tearDown() {
