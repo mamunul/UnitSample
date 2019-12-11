@@ -1,0 +1,69 @@
+{
+  "configurations" : [
+    {
+      "id" : "5C93DA72-327C-4370-B7F9-889E1AA70811",
+      "name" : "US",
+      "options" : {
+        "language" : "en",
+        "region" : "US"
+      }
+    },
+    {
+      "id" : "A0412F8A-4D86-459A-8F6F-12DC815BD288",
+      "name" : "Memory Checking",
+      "options" : {
+        "addressSanitizer" : {
+          "enabled" : true
+        },
+        "mallocScribbleEnabled" : true,
+        "nsZombieEnabled" : true,
+        "threadSanitizerEnabled" : false
+      }
+    },
+    {
+      "id" : "BA5B6044-46E5-43D9-87C4-32051213E96F",
+      "name" : "Concurrency",
+      "options" : {
+        "testExecutionOrdering" : "random",
+        "threadSanitizerEnabled" : true,
+        "undefinedBehaviorSanitizerEnabled" : true
+      }
+    },
+    {
+      "id" : "00F8BB7D-3D58-470C-825D-BC30455277F9",
+      "name" : "Extra",
+      "options" : {
+        "areLocalizationScreenshotsEnabled" : true,
+        "mallocStackLoggingOptions" : {
+          "loggingType" : "allAllocations"
+        },
+        "uiTestingScreenshotsLifetime" : "keepAlways",
+        "userAttachmentLifetime" : "keepAlways"
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:UnitSample.xcodeproj",
+      "identifier" : "B2C9ADE0238D424C00CC4360",
+      "name" : "UnitSample"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:UnitSample.xcodeproj",
+        "identifier" : "B2C9ADF9238D424F00CC4360",
+        "name" : "UnitSampleTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:UnitSample.xcodeproj",
+        "identifier" : "B2C9AE04238D424F00CC4360",
+        "name" : "UnitSampleUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

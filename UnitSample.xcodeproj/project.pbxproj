@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B2672D2923A0E2F10073D085 /* LocationLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2672D2823A0E2F10073D085 /* LocationLoader.swift */; };
+		B2672D2B23A0E47C0073D085 /* PointOfInterest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2672D2A23A0E47C0073D085 /* PointOfInterest.swift */; };
+		B2672D2F23A0EF4B0073D085 /* MockUrlProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2672D2E23A0EF4B0073D085 /* MockUrlProtocol.swift */; };
+		B2672D3123A0F1E30073D085 /* APILoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2672D3023A0F1E30073D085 /* APILoaderTests.swift */; };
+		B2672D3323A0F4F70073D085 /* PointOfInterestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2672D3223A0F4F70073D085 /* PointOfInterestTests.swift */; };
 		B27CA787238FC263009C5570 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27CA786238FC263009C5570 /* UserModel.swift */; };
 		B27CA789238FD0B6009C5570 /* ActivityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27CA788238FD0B6009C5570 /* ActivityModel.swift */; };
 		B2C9ADE5238D424C00CC4360 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C9ADE4238D424C00CC4360 /* AppDelegate.swift */; };
@@ -49,6 +54,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B2672D2723A0C0270073D085 /* UnitSample1.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = UnitSample1.xctestplan; path = UnitSample.xcodeproj/UnitSample1.xctestplan; sourceTree = "<group>"; };
+		B2672D2823A0E2F10073D085 /* LocationLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationLoader.swift; sourceTree = "<group>"; };
+		B2672D2A23A0E47C0073D085 /* PointOfInterest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointOfInterest.swift; sourceTree = "<group>"; };
+		B2672D2E23A0EF4B0073D085 /* MockUrlProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUrlProtocol.swift; sourceTree = "<group>"; };
+		B2672D3023A0F1E30073D085 /* APILoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APILoaderTests.swift; sourceTree = "<group>"; };
+		B2672D3223A0F4F70073D085 /* PointOfInterestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointOfInterestTests.swift; sourceTree = "<group>"; };
 		B27CA786238FC263009C5570 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		B27CA788238FD0B6009C5570 /* ActivityModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityModel.swift; sourceTree = "<group>"; };
 		B2C9ADE1238D424C00CC4360 /* UnitSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnitSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,6 +119,7 @@
 		B2C9ADD8238D424C00CC4360 = {
 			isa = PBXGroup;
 			children = (
+				B2672D2723A0C0270073D085 /* UnitSample1.xctestplan */,
 				B2C9ADE3238D424C00CC4360 /* UnitSample */,
 				B2C9ADFD238D424F00CC4360 /* UnitSampleTests */,
 				B2C9AE08238D424F00CC4360 /* UnitSampleUITests */,
@@ -141,6 +153,8 @@
 				B2C9ADED238D424C00CC4360 /* UnitSample.xcdatamodeld */,
 				B27CA786238FC263009C5570 /* UserModel.swift */,
 				B27CA788238FD0B6009C5570 /* ActivityModel.swift */,
+				B2672D2823A0E2F10073D085 /* LocationLoader.swift */,
+				B2672D2A23A0E47C0073D085 /* PointOfInterest.swift */,
 			);
 			path = UnitSample;
 			sourceTree = "<group>";
@@ -148,12 +162,15 @@
 		B2C9ADFD238D424F00CC4360 /* UnitSampleTests */ = {
 			isa = PBXGroup;
 			children = (
+				B2672D3223A0F4F70073D085 /* PointOfInterestTests.swift */,
 				B2C9AE2E238D48FE00CC4360 /* PasswordCheckerTests.swift */,
 				B2C9AE2C238D48F900CC4360 /* MockURLSession.swift */,
 				B2C9AE28238D48F300CC4360 /* HttpClientTests.swift */,
 				B2C9AE2A238D48F600CC4360 /* MockURLSessionDataTask.swift */,
 				B2C9ADFE238D424F00CC4360 /* UnitSampleTests.swift */,
 				B2C9AE00238D424F00CC4360 /* Info.plist */,
+				B2672D2E23A0EF4B0073D085 /* MockUrlProtocol.swift */,
+				B2672D3023A0F1E30073D085 /* APILoaderTests.swift */,
 			);
 			path = UnitSampleTests;
 			sourceTree = "<group>";
@@ -317,10 +334,12 @@
 				B2C9AE27238D48ED00CC4360 /* PasswordChecker.swift in Sources */,
 				B2C9AE1D238D444400CC4360 /* User+CoreDataProperties.swift in Sources */,
 				B2C9ADE5238D424C00CC4360 /* AppDelegate.swift in Sources */,
+				B2672D2B23A0E47C0073D085 /* PointOfInterest.swift in Sources */,
 				B2C9ADE7238D424C00CC4360 /* SceneDelegate.swift in Sources */,
 				B2C9AE21238D449800CC4360 /* CoreDataManager.swift in Sources */,
 				B2C9AE1F238D444400CC4360 /* Activities+CoreDataProperties.swift in Sources */,
 				B27CA787238FC263009C5570 /* UserModel.swift in Sources */,
+				B2672D2923A0E2F10073D085 /* LocationLoader.swift in Sources */,
 				B27CA789238FD0B6009C5570 /* ActivityModel.swift in Sources */,
 				B2C9AE1C238D444400CC4360 /* User+CoreDataClass.swift in Sources */,
 			);
@@ -331,8 +350,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2C9AE2D238D48F900CC4360 /* MockURLSession.swift in Sources */,
+				B2672D2F23A0EF4B0073D085 /* MockUrlProtocol.swift in Sources */,
 				B2C9AE2B238D48F600CC4360 /* MockURLSessionDataTask.swift in Sources */,
+				B2672D3123A0F1E30073D085 /* APILoaderTests.swift in Sources */,
 				B2C9AE2F238D48FE00CC4360 /* PasswordCheckerTests.swift in Sources */,
+				B2672D3323A0F4F70073D085 /* PointOfInterestTests.swift in Sources */,
 				B2C9AE29238D48F300CC4360 /* HttpClientTests.swift in Sources */,
 				B2C9ADFF238D424F00CC4360 /* UnitSampleTests.swift in Sources */,
 			);
