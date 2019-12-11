@@ -68,6 +68,29 @@ class APILoaderTests: XCTestCase {
         
         wait(for: [expectation], timeout: 1)
     }
+    
+    func testApiResponse3() {
+        
+        let location = CLLocationCoordinate2D(latitude: 37.3293, longitude: -121.8893)
+        
+        enum CError:Error{
+            case testError
+        }
+        
+        MockUrlProtocol.requestHandler = {request in
+            XCTAssertEqual(request.url?.query?.contains("lat=37.3293"),true)
+            throw CError.testError
+        }
+        
+        let expectation = XCTestExpectation(description: "response")
+        loader.loadAPIRequest(requestData: location) { (pointsOfInterest, error) in
+            XCTAssertNil(pointsOfInterest)
+            XCTAssertNotNil(error)
+            expectation.fulfill()
+        }
+        
+        wait(for: [expectation], timeout: 1)
+    }
 
     func testPerformanceExample() {
         // This is an example of a performance test case.

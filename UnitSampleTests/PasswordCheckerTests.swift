@@ -25,6 +25,7 @@ class PasswordCheckerTests: XCTestCase {
         
         XCTAssertThrowsError(try passwordChecker.check()){ error in
             XCTAssertEqual(error as! PasswordError, PasswordError.short)
+             XCTAssertNotEqual(error as! PasswordError, PasswordError.long)
             
         }
         let result = try? passwordChecker.check()

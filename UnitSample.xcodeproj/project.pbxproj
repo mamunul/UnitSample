@@ -12,6 +12,9 @@
 		B2672D2F23A0EF4B0073D085 /* MockUrlProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2672D2E23A0EF4B0073D085 /* MockUrlProtocol.swift */; };
 		B2672D3123A0F1E30073D085 /* APILoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2672D3023A0F1E30073D085 /* APILoaderTests.swift */; };
 		B2672D3323A0F4F70073D085 /* PointOfInterestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2672D3223A0F4F70073D085 /* PointOfInterestTests.swift */; };
+		B2672D3623A107CD0073D085 /* NotificationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2672D3523A107CD0073D085 /* NotificationObserver.swift */; };
+		B2672D3823A107E10073D085 /* NotificationObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2672D3723A107E10073D085 /* NotificationObservable.swift */; };
+		B2672D3A23A10DC40073D085 /* NotificationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2672D3923A10DC40073D085 /* NotificationTests.swift */; };
 		B27CA787238FC263009C5570 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27CA786238FC263009C5570 /* UserModel.swift */; };
 		B27CA789238FD0B6009C5570 /* ActivityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27CA788238FD0B6009C5570 /* ActivityModel.swift */; };
 		B2C9ADE5238D424C00CC4360 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C9ADE4238D424C00CC4360 /* AppDelegate.swift */; };
@@ -60,6 +63,9 @@
 		B2672D2E23A0EF4B0073D085 /* MockUrlProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUrlProtocol.swift; sourceTree = "<group>"; };
 		B2672D3023A0F1E30073D085 /* APILoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APILoaderTests.swift; sourceTree = "<group>"; };
 		B2672D3223A0F4F70073D085 /* PointOfInterestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointOfInterestTests.swift; sourceTree = "<group>"; };
+		B2672D3523A107CD0073D085 /* NotificationObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationObserver.swift; sourceTree = "<group>"; };
+		B2672D3723A107E10073D085 /* NotificationObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationObservable.swift; sourceTree = "<group>"; };
+		B2672D3923A10DC40073D085 /* NotificationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTests.swift; sourceTree = "<group>"; };
 		B27CA786238FC263009C5570 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		B27CA788238FD0B6009C5570 /* ActivityModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityModel.swift; sourceTree = "<group>"; };
 		B2C9ADE1238D424C00CC4360 /* UnitSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnitSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,6 +122,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B2672D3423A0FF800073D085 /* URLMock */ = {
+			isa = PBXGroup;
+			children = (
+				B2672D2823A0E2F10073D085 /* LocationLoader.swift */,
+				B2672D2A23A0E47C0073D085 /* PointOfInterest.swift */,
+			);
+			path = URLMock;
+			sourceTree = "<group>";
+		};
 		B2C9ADD8238D424C00CC4360 = {
 			isa = PBXGroup;
 			children = (
@@ -153,8 +168,9 @@
 				B2C9ADED238D424C00CC4360 /* UnitSample.xcdatamodeld */,
 				B27CA786238FC263009C5570 /* UserModel.swift */,
 				B27CA788238FD0B6009C5570 /* ActivityModel.swift */,
-				B2672D2823A0E2F10073D085 /* LocationLoader.swift */,
-				B2672D2A23A0E47C0073D085 /* PointOfInterest.swift */,
+				B2672D3423A0FF800073D085 /* URLMock */,
+				B2672D3523A107CD0073D085 /* NotificationObserver.swift */,
+				B2672D3723A107E10073D085 /* NotificationObservable.swift */,
 			);
 			path = UnitSample;
 			sourceTree = "<group>";
@@ -171,6 +187,7 @@
 				B2C9AE00238D424F00CC4360 /* Info.plist */,
 				B2672D2E23A0EF4B0073D085 /* MockUrlProtocol.swift */,
 				B2672D3023A0F1E30073D085 /* APILoaderTests.swift */,
+				B2672D3923A10DC40073D085 /* NotificationTests.swift */,
 			);
 			path = UnitSampleTests;
 			sourceTree = "<group>";
@@ -330,7 +347,9 @@
 				B2C9AE25238D48E800CC4360 /* HttpClient.swift in Sources */,
 				B2C9AE1E238D444400CC4360 /* Activities+CoreDataClass.swift in Sources */,
 				B2C9ADE9238D424C00CC4360 /* ViewController.swift in Sources */,
+				B2672D3823A107E10073D085 /* NotificationObservable.swift in Sources */,
 				B2C9ADEF238D424C00CC4360 /* UnitSample.xcdatamodeld in Sources */,
+				B2672D3623A107CD0073D085 /* NotificationObserver.swift in Sources */,
 				B2C9AE27238D48ED00CC4360 /* PasswordChecker.swift in Sources */,
 				B2C9AE1D238D444400CC4360 /* User+CoreDataProperties.swift in Sources */,
 				B2C9ADE5238D424C00CC4360 /* AppDelegate.swift in Sources */,
@@ -350,6 +369,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2C9AE2D238D48F900CC4360 /* MockURLSession.swift in Sources */,
+				B2672D3A23A10DC40073D085 /* NotificationTests.swift in Sources */,
 				B2672D2F23A0EF4B0073D085 /* MockUrlProtocol.swift in Sources */,
 				B2C9AE2B238D48F600CC4360 /* MockURLSessionDataTask.swift in Sources */,
 				B2672D3123A0F1E30073D085 /* APILoaderTests.swift in Sources */,
