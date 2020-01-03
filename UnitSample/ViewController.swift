@@ -24,7 +24,7 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func insertUser(){
+    @IBAction func insertUser()
         var user = UserModel(name: "Mobin", age: 18, country: "BD")
         let cricketActivity = ActivityModel(name: "Cricket", playersNumber: 11)
         let tennisActivity = ActivityModel(name: "Tennis", playersNumber: 2)
