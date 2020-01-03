@@ -10,6 +10,6 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Build
-      run:  xcrun xcodebuild -project UnitSample.xcodeproj -scheme "UnitSample"  -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=13.3,name=iPhone 11 Pro'  -derivedDataPath './output'  -configuration Debug  CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO build
+      run:  xcrun xcodebuild -project UnitSample.xcodeproj -scheme "UnitSample"  -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=13.1,name=iPhone 11 Pro'  -derivedDataPath './output'  -configuration Debug  CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO build
     - name: Run tests
       run: swift test -v
