@@ -16,9 +16,15 @@ jobs:
     - name: Build
       run:  xcrun xcodebuild -project UnitSample.xcodeproj -scheme "UnitSample"  -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11 Pro'  -configuration Debug  CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO build
     - name: Run tests
-      run: xcrun xcodebuild -project UnitSample.xcodeproj -scheme "UnitSample"  -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11 Pro'  -configuration Debug  CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -resultBundlePath "testReports/TestResult.xcresult" test | xcpretty --color --report html --output TestReports/report.html  
+      id:  xcodetest
+      run: xcrun xcodebuild -project UnitSample.xcodeproj -scheme "UnitSample"  -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11 Pro'  -configuration Debug  CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -resultBundlePath "testReports/TestResult.xcresult" test | xcpretty --color --report html --output TestReports/report.html 
+            echo "::set-output name=result::$?" 
     - name: Test Reports
+      if: steps.xcodetest.outputs.result != 0
       uses: actions/upload-artifact@v1
       with:
           name: testReports
           path: TestReports
+    - name: Check Tests Passed
+      if: steps.xcodebuild.outputs.result != 0
+      run: exit 1
