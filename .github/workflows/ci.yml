@@ -18,7 +18,9 @@ jobs:
     - name: Run tests
       id:  xcodetest
       run: xcodebuild -project UnitSample.xcodeproj -scheme "UnitSample" -testPlan "UnitSample1"  -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11 Pro'  -configuration Debug  CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -resultBundlePath "testReports/TestResult.xcresult" test | xcpretty --color --report html --output TestReports/report.html 
-             exit ${pipestatus[1]} #echo "::set-output name=result::${pipestatus[1]}" 
+             #exit ${pipestatus[1]} #echo "::set-output name=result::${pipestatus[1]}" 
+    - name: status
+      run: echo ${pipestatus[1]}
     - name: Test Reports
       if: failure()
       uses: actions/upload-artifact@v1
