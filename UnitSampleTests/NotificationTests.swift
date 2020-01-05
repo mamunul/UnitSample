@@ -31,6 +31,7 @@ class NotificationTests: XCTestCase {
         let notificationObserver = NotificationObserver(notification:notificationCenter)
 
         XCTAssertFalse(notificationObserver.didHandleNotification)
+        XCTAssertTruenotificationObserver.didHandleNotification)
         
         let notificationObservable = NotificationObservable(notificationCenter: notificationCenter)
         
