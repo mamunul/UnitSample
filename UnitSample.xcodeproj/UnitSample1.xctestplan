@@ -13,7 +13,7 @@
       "name" : "Memory Checking",
       "options" : {
         "addressSanitizer" : {
-          "enabled" : true
+          "enabled" : false
         },
         "mallocScribbleEnabled" : true,
         "nsZombieEnabled" : true,
@@ -24,9 +24,10 @@
       "id" : "BA5B6044-46E5-43D9-87C4-32051213E96F",
       "name" : "Concurrency",
       "options" : {
+        "mainThreadCheckerEnabled" : false,
         "testExecutionOrdering" : "random",
-        "threadSanitizerEnabled" : true,
-        "undefinedBehaviorSanitizerEnabled" : true
+        "threadSanitizerEnabled" : false,
+        "undefinedBehaviorSanitizerEnabled" : false
       }
     },
     {
