@@ -6,7 +6,7 @@ jobs:
   build:
     
     name: Build and Test
-    runs-on: [self-hosted,macOS-latest]
+    runs-on: [self-hosted,macos-latest]
 
     steps:
     - uses: actions/checkout@v1
