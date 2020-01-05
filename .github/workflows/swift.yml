@@ -5,7 +5,7 @@ on: [push,pull_request]
 jobs:
   build:
 
-    runs-on: macOS-latest
+    runs-on: [self-hosted, macOS-latest]
 
     steps:
     - uses: actions/checkout@v1
