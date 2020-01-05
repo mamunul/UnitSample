@@ -4,8 +4,9 @@ on: [push,pull_request]
 
 jobs:
   build:
-
-    runs-on: [self-hosted, macOS-latest]
+    
+    name: Build and Test
+    runs-on: [self-hosted,macos-latest]
 
     steps:
     - uses: actions/checkout@v1
