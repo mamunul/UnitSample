@@ -1,4 +1,4 @@
-name: Swift
+name: CI
 
 on: [push,pull_request]
 
@@ -6,7 +6,7 @@ jobs:
   build:
     
     name: Build and Test
-    runs-on: [self-hosted,macos-latest]
+    runs-on: [self-hosted,macOS-latest]
 
     steps:
     - uses: actions/checkout@v1
