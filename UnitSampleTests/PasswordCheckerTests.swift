@@ -41,7 +41,7 @@ class PasswordCheckerTests: XCTestCase {
         }
         
         let result = try? passwordChecker.check()
-        XCTAssertNil(result)
+        XCTAssertNotNil(result)
         
     }
     
