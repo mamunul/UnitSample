@@ -1,7 +1,13 @@
 os: osx
 osx_image: xcode11.1
 language: swift
-script:
-    - xcrun xcodebuild -project UnitSample.xcodeproj -scheme "UnitSample"  -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=13.1,name=iPhone 11 Pro'  -configuration Debug  CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO build
 
-    - xcrun xcodebuild -project UnitSample.xcodeproj -scheme "UnitSample"  -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=13.1,name=iPhone 11 Pro'  -configuration Debug  CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO test
+jobs:
+  include:
+    - stage: "Build"                # naming the Tests stage
+      name: "Build"            # names the first Tests stage job
+      script: - xcrun xcodebuild -project UnitSample.xcodeproj -scheme "UnitSample"  -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=13.1,name=iPhone 11 Pro'  -configuration Debug  CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO build
+
+    - stage: "Tests"                # naming the Tests stage
+      name: "Unit Tests"            # names the first Tests stage job
+      script: - xcrun xcodebuild -project UnitSample.xcodeproj -scheme "UnitSample"  -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=13.1,name=iPhone 11 Pro'  -configuration Debug  CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO test
