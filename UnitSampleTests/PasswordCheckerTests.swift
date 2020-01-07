@@ -21,11 +21,11 @@ class PasswordCheckerTests: XCTestCase {
     }
     
     func test_shortPassword(){
-        let passwordChecker = PasswordChecker(password: "testrt")
+           let passwordChecker = PasswordChecker(password: "testrt")
         
         XCTAssertThrowsError(try passwordChecker.check()){ error in
             XCTAssertEqual(error as! PasswordError, PasswordError.short)
-             XCTAssertNotEqual(error as! PasswordError, PasswordError.long)
+            XCTAssertNotEqual(error as! PasswordError, PasswordError.long)
             
         }
         let result = try? passwordChecker.check()
