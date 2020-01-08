@@ -17,24 +17,12 @@ jobs:
       run:  xcodebuild -project UnitSample.xcodeproj -scheme "UnitSample"  -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11 Pro'  -configuration Debug  CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO build
     - name: Run tests
       id:  xcodetest
-<<<<<<< HEAD
-      run: xcodebuild -project UnitSample.xcodeproj -scheme "UnitSample" -testPlan "UnitSample1"  -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11 Pro'  -configuration Debug  CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -resultBundlePath "testReports/TestResult.xcresult" test | xcpretty --color --report html --output TestReports/report.html 
-             #exit ${pipestatus[1]} #echo "::set-output name=result::${pipestatus[1]}" 
-    - name: status
-      run: echo "Test ${PIPESTATUS[0]} ____ ${PIPESTATUS[1]} ____ ${PIPESTATUS[2]}"
-=======
       run: set -o pipefail && xcodebuild -project UnitSample.xcodeproj -scheme "UnitSample" -testPlan "UnitSample1"  -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11 Pro'  -configuration Debug  CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -resultBundlePath "TestReports/TestResult.xcresult" test | xcpretty --color --report html --output TestReports/report.html 
-
->>>>>>> 37696d32d15b22e79db16c1f3141c05ce450fcf3
+    
     - name: Test Reports
       if: failure()
       uses: actions/upload-artifact@v1
       with:
           name: testReports
           path: TestReports
-<<<<<<< HEAD
-    - name: Check Tests Passed
-      if: failure() #steps.xcodetest.outputs.result != 0
-      run: exit 1
-=======
->>>>>>> 37696d32d15b22e79db16c1f3141c05ce450fcf3
+
