@@ -8,17 +8,15 @@
 
 import Foundation
 
-
-class NotificationObservable{
-    
+class NotificationObservable {
     static let notificationName = Notification.Name("Notification")
-    let notificationCenter:NotificationCenter
-    
-    init(notificationCenter:NotificationCenter = .default){
+    let notificationCenter: NotificationCenter
+
+    init(notificationCenter: NotificationCenter = .default) {
         self.notificationCenter = notificationCenter
     }
-    
-    func notifyObserver(){
-        notificationCenter.post(name:NotificationObservable.notificationName, object: self)
+
+    func notifyObserver() {
+        notificationCenter.post(name: NotificationObservable.notificationName, object: self)
     }
 }

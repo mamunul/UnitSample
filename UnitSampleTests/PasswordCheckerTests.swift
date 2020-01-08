@@ -6,62 +6,56 @@
 //  Copyright © 2019 New User. All rights reserved.
 //
 
-import XCTest
 @testable import UnitSample
+import XCTest
 
 class PasswordCheckerTests: XCTestCase {
-
     override func setUp() {
-        
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
 
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-    
-    func test_shortPassword(){
-           let passwordChecker = PasswordChecker(password: "testrt")
-        
-        XCTAssertThrowsError(try passwordChecker.check()){ error in
+
+    func test_shortPassword() {
+        let passwordChecker = PasswordChecker(password: "testrt")
+
+        XCTAssertThrowsError(try passwordChecker.check()) { error in
             XCTAssertEqual(error as! PasswordError, PasswordError.short)
             XCTAssertNotEqual(error as! PasswordError, PasswordError.long)
-            
         }
         let result = try? passwordChecker.check()
         XCTAssertNil(result)
-        
     }
-    
-    func test_commonPassword(){
+
+    func test_commonPassword() {
         let passwordChecker = PasswordChecker(password: "password")
-        
-        XCTAssertThrowsError(try passwordChecker.check()) {error in
+
+        XCTAssertThrowsError(try passwordChecker.check()) { error in
             XCTAssertEqual(error as! PasswordError, PasswordError.customMessage(message: "custom error"))
         }
-        
+
         let result = try? passwordChecker.check()
         XCTAssertNil(result)
-        
     }
-    
-    func test_correctPassword(){
+
+    func test_correctPassword() {
         let passwordChecker = PasswordChecker(password: "testrtert")
-        
+
         let result = try? passwordChecker.check()
-        
+
         XCTAssertNotNil(result)
         XCTAssertTrue(result!)
     }
-    
-    func test_longPassword(){
+
+    func test_longPassword() {
         let passwordChecker = PasswordChecker(password: "testrtertsfsafsafsaf")
-        
-        XCTAssertThrowsError(try passwordChecker.check()){ error in
+
+        XCTAssertThrowsError(try passwordChecker.check()) { error in
             XCTAssertEqual(error as! PasswordError, PasswordError.long)
-            
         }
-        
+
         let result = try? passwordChecker.check()
         XCTAssertNil(result)
     }
@@ -77,5 +71,4 @@ class PasswordCheckerTests: XCTestCase {
 //            // Put the code you want to measure the time of here.
 //        }
     }
-
 }
