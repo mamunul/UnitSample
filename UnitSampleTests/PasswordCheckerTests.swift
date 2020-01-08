@@ -17,16 +17,7 @@ class PasswordCheckerTests: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-<<<<<<< HEAD
-    
-    func test_shortPassword(){
-           let passwordChecker = PasswordChecker(password: "testrt")
-        
-        XCTAssertThrowsError(try passwordChecker.check()){ error in
-            XCTAssertEqual(error as! PasswordError, PasswordError.short)
-            XCTAssertNotEqual(error as! PasswordError, PasswordError.long)
-            
-=======
+
 
     func test_shortPassword() {
         let passwordChecker = PasswordChecker(password: "testrt")
@@ -34,7 +25,6 @@ class PasswordCheckerTests: XCTestCase {
         XCTAssertThrowsError(try passwordChecker.check()) { error in
             XCTAssertEqual(error as! PasswordError, PasswordError.short)
             XCTAssertNotEqual(error as! PasswordError, PasswordError.long)
->>>>>>> 37696d32d15b22e79db16c1f3141c05ce450fcf3
         }
         let result = try? passwordChecker.check()
         XCTAssertNil(result)
