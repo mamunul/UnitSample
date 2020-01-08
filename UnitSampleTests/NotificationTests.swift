@@ -6,17 +6,12 @@
 //  Copyright © 2019 New User. All rights reserved.
 //
 
-import XCTest
 @testable import UnitSample
+import XCTest
 
 class NotificationTests: XCTestCase {
-    
-    
-
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        
-        
     }
 
     override func tearDown() {
@@ -26,37 +21,38 @@ class NotificationTests: XCTestCase {
     func testNotification() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-        
+
         let notificationCenter = NotificationCenter()
-        let notificationObserver = NotificationObserver(notification:notificationCenter)
+        let notificationObserver = NotificationObserver(notification: notificationCenter)
 
         XCTAssertFalse(notificationObserver.didHandleNotification)
+<<<<<<< HEAD
         XCTAssertTrue(notificationObserver.didHandleNotification)
         
+=======
+//        XCTAssertTrue(notificationObserver.didHandleNotification)
+
+>>>>>>> 37696d32d15b22e79db16c1f3141c05ce450fcf3
         let notificationObservable = NotificationObservable(notificationCenter: notificationCenter)
-        
+
         notificationObservable.notifyObserver()
 
-        
         XCTAssertTrue(notificationObserver.didHandleNotification)
-        
-        
     }
-    
+
     func testNotificationAsync() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-        
+
         let notificationCenter = NotificationCenter()
-        
+
         let notificationObservable = NotificationObservable(notificationCenter: notificationCenter)
-        
-        
-        let expectation = XCTNSNotificationExpectation(name: NotificationObservable.notificationName, object: notificationObservable,notificationCenter: notificationCenter)
-        
+
+        let expectation = XCTNSNotificationExpectation(name: NotificationObservable.notificationName, object: notificationObservable, notificationCenter: notificationCenter)
+
         notificationObservable.notifyObserver()
-        
-        wait(for:[expectation], timeout: 0)
+
+        wait(for: [expectation], timeout: 0)
     }
 
     func testPerformanceExample() {
@@ -65,5 +61,4 @@ class NotificationTests: XCTestCase {
 //            // Put the code you want to measure the time of here.
 //        }
     }
-
 }

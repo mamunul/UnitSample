@@ -8,10 +8,9 @@
 
 import Foundation
 
-
 struct UserModel {
-    var name:String
-    var age:Int
-    var country:String
-    var activities:[ActivityModel]?
+    var name: String
+    var age: Int
+    var country: String
+    var activities: [ActivityModel]?
 }

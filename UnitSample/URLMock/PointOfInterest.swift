@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct PointOfInterest:Decodable,Equatable{
-    let name:String
+struct PointOfInterest: Decodable, Equatable {
+    let name: String
 }

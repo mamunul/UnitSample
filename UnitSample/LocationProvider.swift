@@ -6,64 +6,54 @@
 //  Copyright © 2019 New User. All rights reserved.
 //
 
-import Foundation
 import CoreLocation
+import Foundation
 
+class LocationProvider: NSObject {
+    private var locationManager: LocationFetcher
+    private var currentLocationCallback: ((CLLocation) -> Void)?
 
-class LocationProvider:NSObject{
-    
-    private var locationManager:LocationFetcher
-    private var currentLocationCallback:((CLLocation) -> Void)?
-    
-    
-    required init(locationManager:LocationFetcher = CLLocationManager()){
+    required init(locationManager: LocationFetcher = CLLocationManager()) {
         self.locationManager = locationManager
         super.init()
         self.locationManager.desiredAccuracy = .leastNormalMagnitude
         self.locationManager.locationFetcherDelegate = self
     }
-    
-    func checkCurrentLocation(completion:@escaping (Bool)->Void){
-        self.currentLocationCallback = {location in
+
+    func checkCurrentLocation(completion: @escaping (Bool) -> Void) {
+        currentLocationCallback = { _ in
             completion(true)
-            
         }
         locationManager.requestLocation()
     }
-    
 }
 
-extension LocationProvider:LocationFetcherDelegate{
+extension LocationProvider: LocationFetcherDelegate {
     func locationFetcher(_ fetcher: LocationFetcher, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.first else {return}
-        
-        self.currentLocationCallback?(location)
-        self.currentLocationCallback = nil
+        guard let location = locations.first else { return }
+
+        currentLocationCallback?(location)
+        currentLocationCallback = nil
     }
-    
-    
 }
 
-extension LocationProvider:CLLocationManagerDelegate{
-   
+extension LocationProvider: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        self.locationFetcher(manager, didUpdateLocations: locations)
+        locationFetcher(manager, didUpdateLocations: locations)
     }
-    
 }
 
 protocol LocationFetcherDelegate {
-    func locationFetcher(_ fetcher:LocationFetcher,didUpdateLocations locations:[CLLocation])
+    func locationFetcher(_ fetcher: LocationFetcher, didUpdateLocations locations: [CLLocation])
 }
 
 protocol LocationFetcher {
-    var locationFetcherDelegate:LocationFetcherDelegate? {get set}
-    var desiredAccuracy:CLLocationAccuracy {get set}
+    var locationFetcherDelegate: LocationFetcherDelegate? { get set }
+    var desiredAccuracy: CLLocationAccuracy { get set }
     func requestLocation()
 }
 
-
-extension CLLocationManager:LocationFetcher{
+extension CLLocationManager: LocationFetcher {
     var locationFetcherDelegate: LocationFetcherDelegate? {
         get {
             return delegate as! LocationFetcherDelegate?
@@ -72,6 +62,4 @@ extension CLLocationManager:LocationFetcher{
             delegate = newValue as! CLLocationManagerDelegate?
         }
     }
-    
-    
 }

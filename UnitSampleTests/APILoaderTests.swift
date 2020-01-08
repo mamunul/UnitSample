@@ -6,22 +6,22 @@
 //  Copyright © 2019 New User. All rights reserved.
 //
 
-import XCTest
-import Foundation
 import CoreLocation
+import Foundation
 @testable import UnitSample
+import XCTest
 
 class APILoaderTests: XCTestCase {
-    var loader:APIRequestLoader<PointOfInterestRequest>!
+    var loader: APIRequestLoader<PointOfInterestRequest>!
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         let request = PointOfInterestRequest()
-        
+
         let configuration = URLSessionConfiguration.ephemeral
         configuration.protocolClasses = [MockUrlProtocol.self]
-        let urlSession = URLSession(configuration:configuration)
-        
+        let urlSession = URLSession(configuration: configuration)
+
         loader = APIRequestLoader(apiRequest: request, urlSession: urlSession)
     }
 
@@ -30,65 +30,62 @@ class APILoaderTests: XCTestCase {
     }
 
     func testApiResponse() {
-
         let location = CLLocationCoordinate2D(latitude: 37.3293, longitude: -121.8893)
         let jsonData = "[{\"name\":\"My request\"}]".data(using: .utf8)!
-        
-        MockUrlProtocol.requestHandler = {request in
-            XCTAssertEqual(request.url?.query?.contains("lat=37.3293"),true)
-            return(HTTPURLResponse(),jsonData)
+
+        MockUrlProtocol.requestHandler = { request in
+            XCTAssertEqual(request.url?.query?.contains("lat=37.3293"), true)
+            return (HTTPURLResponse(), jsonData)
         }
-        
+
         let expectation = XCTestExpectation(description: "response")
-        loader.loadAPIRequest(requestData: location) { (pointsOfInterest, error) in
-            XCTAssertEqual(pointsOfInterest, [PointOfInterest(name:"My request")])
+        loader.loadAPIRequest(requestData: location) { pointsOfInterest, error in
+            XCTAssertEqual(pointsOfInterest, [PointOfInterest(name: "My request")])
             XCTAssertNil(error)
             expectation.fulfill()
         }
-        
+
         wait(for: [expectation], timeout: 1)
     }
-    
-    func testApiResponse2() {
 
+    func testApiResponse2() {
         let location = CLLocationCoordinate2D(latitude: 37.3293, longitude: -121.8893)
         let jsonData = "[{\"name\":,,::\"My request\"}]".data(using: .utf8)!
-        
-        MockUrlProtocol.requestHandler = {request in
-            XCTAssertEqual(request.url?.query?.contains("lat=37.3293"),true)
-            return(HTTPURLResponse(),jsonData)
+
+        MockUrlProtocol.requestHandler = { request in
+            XCTAssertEqual(request.url?.query?.contains("lat=37.3293"), true)
+            return (HTTPURLResponse(), jsonData)
         }
-        
+
         let expectation = XCTestExpectation(description: "response")
-        loader.loadAPIRequest(requestData: location) { (pointsOfInterest, error) in
+        loader.loadAPIRequest(requestData: location) { pointsOfInterest, error in
             XCTAssertNil(pointsOfInterest)
             XCTAssertNotNil(error)
             expectation.fulfill()
         }
-        
+
         wait(for: [expectation], timeout: 1)
     }
-    
+
     func testApiResponse3() {
-        
         let location = CLLocationCoordinate2D(latitude: 37.3293, longitude: -121.8893)
-        
-        enum CError:Error{
+
+        enum CError: Error {
             case testError
         }
-        
-        MockUrlProtocol.requestHandler = {request in
-            XCTAssertEqual(request.url?.query?.contains("lat=37.3293"),true)
+
+        MockUrlProtocol.requestHandler = { request in
+            XCTAssertEqual(request.url?.query?.contains("lat=37.3293"), true)
             throw CError.testError
         }
-        
+
         let expectation = XCTestExpectation(description: "response")
-        loader.loadAPIRequest(requestData: location) { (pointsOfInterest, error) in
+        loader.loadAPIRequest(requestData: location) { pointsOfInterest, error in
             XCTAssertNil(pointsOfInterest)
             XCTAssertNotNil(error)
             expectation.fulfill()
         }
-        
+
         wait(for: [expectation], timeout: 1)
     }
 
@@ -98,5 +95,4 @@ class APILoaderTests: XCTestCase {
 //            // Put the code you want to measure the time of here.
 //        }
     }
-
 }

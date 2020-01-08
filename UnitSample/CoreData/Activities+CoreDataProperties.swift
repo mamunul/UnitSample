@@ -7,12 +7,10 @@
 //
 //
 
-import Foundation
 import CoreData
-
+import Foundation
 
 extension Activities {
-
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Activities> {
         return NSFetchRequest<Activities>(entityName: "Activities")
     }
@@ -20,12 +18,11 @@ extension Activities {
     @NSManaged public var name: String?
     @NSManaged public var requiredPlayers: Int16
     @NSManaged public var users: NSSet?
-
 }
 
 // MARK: Generated accessors for users
-extension Activities {
 
+extension Activities {
     @objc(addUsersObject:)
     @NSManaged public func addToUsers(_ value: User)
 
@@ -37,5 +34,4 @@ extension Activities {
 
     @objc(removeUsers:)
     @NSManaged public func removeFromUsers(_ values: NSSet)
-
 }

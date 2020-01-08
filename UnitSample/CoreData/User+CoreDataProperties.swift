@@ -7,12 +7,10 @@
 //
 //
 
-import Foundation
 import CoreData
-
+import Foundation
 
 extension User {
-    
     convenience init(context: NSManagedObjectContext) {
         let entityDescription = NSEntityDescription.entity(forEntityName: "User", in: context)!
         self.init(entity: entityDescription, insertInto: context)
@@ -21,21 +19,19 @@ extension User {
     @nonobjc public class func fetchRequest() -> NSFetchRequest<User> {
         return NSFetchRequest<User>(entityName: "User")
     }
-    
-    private class func getAllData(){
-        
+
+    private class func getAllData() {
     }
 
     @NSManaged public var age: Int16
     @NSManaged public var country: String?
     @NSManaged public var name: String?
     @NSManaged public var activities: NSSet?
-
 }
 
 // MARK: Generated accessors for activities
-extension User {
 
+extension User {
     @objc(addActivitiesObject:)
     @NSManaged public func addToActivities(_ value: Activities)
 
@@ -47,5 +43,4 @@ extension User {
 
     @objc(removeActivities:)
     @NSManaged public func removeFromActivities(_ values: NSSet)
-
 }

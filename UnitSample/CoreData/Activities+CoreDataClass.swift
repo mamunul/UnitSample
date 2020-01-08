@@ -7,16 +7,13 @@
 //
 //
 
-import Foundation
 import CoreData
+import Foundation
 
 @objc(Activities)
 public class Activities: NSManagedObject {
-
-    
-    func insert(from activity:ActivityModel){
-        
-        self.requiredPlayers = Int16(activity.playersNumber)
-        self.name = activity.name
+    func insert(from activity: ActivityModel) {
+        requiredPlayers = Int16(activity.playersNumber)
+        name = activity.name
     }
 }

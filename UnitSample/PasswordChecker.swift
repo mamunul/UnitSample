@@ -8,20 +8,20 @@
 
 import Foundation
 
-enum PasswordError:Error{
+enum PasswordError: Error {
     case short
     case long
-    case customMessage(message:String)
+    case customMessage(message: String)
 }
 
-extension PasswordError:Equatable{
-    public static func ==(lhs:PasswordError,rhs:PasswordError) ->Bool{
-        switch (lhs,rhs) {
-        case (.short,.short):
+extension PasswordError: Equatable {
+    public static func == (lhs: PasswordError, rhs: PasswordError) -> Bool {
+        switch (lhs, rhs) {
+        case (.short, .short):
             return true
-        case(.long,.long):
+        case(.long, .long):
             return true
-        case(.customMessage,.customMessage):
+        case(.customMessage, .customMessage):
             return true
         default:
             return false
@@ -30,28 +30,25 @@ extension PasswordError:Equatable{
 }
 
 class PasswordChecker {
-    
-    private  let _password:String
-    
-    init(password:String) {
+    private let _password: String
+
+    init(password: String) {
         _password = password
     }
-    
-    func check() throws ->Bool{
-        
+
+    func check() throws -> Bool {
         guard _password.count > 7 else {
             throw PasswordError.short
         }
-        
+
         guard _password.count < 14 else {
             throw PasswordError.long
         }
-        
-        guard _password.lowercased() != "password" else{
+
+        guard _password.lowercased() != "password" else {
             throw PasswordError.customMessage(message: "Common password")
         }
-        
+
         return true
     }
-    
 }

@@ -8,8 +8,7 @@
 
 import Foundation
 
-
 struct ActivityModel {
-    var name:String
-    var playersNumber:Int
+    var name: String
+    var playersNumber: Int
 }

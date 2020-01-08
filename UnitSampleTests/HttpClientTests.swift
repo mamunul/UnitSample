@@ -6,60 +6,56 @@
 //  Copyright © 2019 New User. All rights reserved.
 //
 
-import XCTest
 @testable import UnitSample
+import XCTest
 
 class HttpClientTests: XCTestCase {
-    
-    var session:MockURLSession!
-    var httpClient:HttpClient!
+    var session: MockURLSession!
+    var httpClient: HttpClient!
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         session = MockURLSession()
         httpClient = HttpClient(session: session)
     }
-    
+
     func test_get_request_with_URL() {
-        
         guard let url = URL(string: "https://mockurl") else {
             fatalError("URL can't be empty")
         }
-        
-        httpClient.get(url: url) { (success, response) in
+
+        httpClient.get(url: url) { _, _ in
             // Return data
         }
-        
+
         XCTAssert(session.lastURL == url)
-        
     }
-    
+
     func test_get_resume_called() {
-        
         let dataTask = MockURLSessionDataTask()
         session.nextDataTask = dataTask
-        
+
         guard let url = URL(string: "https://mockurl") else {
             fatalError("URL can't be empty")
         }
-        
-        httpClient.get(url: url) { (success, response) in
+
+        httpClient.get(url: url) { _, _ in
             // Return data
         }
-        
+
 //        XCTAssert(dataTask.resumeWasCalled)
     }
-    
+
     func test_get_should_return_data() {
         let expectedData = "{}".data(using: .utf8)
-        
+
         session.nextData = expectedData
-        
+
         var actualData: Data?
-        httpClient.get(url: URL(string: "http://mockurl")!) { (data, error) in
+        httpClient.get(url: URL(string: "http://mockurl")!) { data, _ in
             actualData = data
         }
-        
+
         XCTAssertNotNil(actualData)
     }
 
@@ -78,5 +74,4 @@ class HttpClientTests: XCTestCase {
 //            // Put the code you want to measure the time of here.
 //        }
     }
-
 }
