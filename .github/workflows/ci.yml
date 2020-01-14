@@ -1,28 +1,67 @@
-name: CI
+name: iOS Check Pull Requst
 
-on: [push,pull_request]
+on:
+  push:
+    branches:
+      - master
+      - dev
+      
+  pull_request:
+    types: [opened, synchronize, reopened]
 
 jobs:
   build:
-    
+  
     name: Build and Test
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [self-hosted, macos-latest]
-
-    steps:
-    - uses: actions/checkout@v1
-    - name: Build
-      run:  xcodebuild -project UnitSample.xcodeproj -scheme "UnitSample"  -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11 Pro'  -configuration Debug  CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO build
-    - name: Run tests
-      id:  xcodetest
-      run: set -o pipefail && xcodebuild -project UnitSample.xcodeproj -scheme "UnitSample" -testPlan "UnitSample1"  -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11 Pro'  -configuration Debug  CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -resultBundlePath "TestReports/TestResult.xcresult" test | xcpretty --color --report html --output TestReports/report.html 
+    runs-on: macos-latest
     
+    strategy:
+      max-parallel: 1
+      matrix:
+        # List all schemes to build
+        scheme: [default]
+        # Specify the platform & devices
+        platform: [iOS Simulator]
+        device: [iPhone 11 Pro]
+    
+    steps:
+    
+    - uses: actions/checkout@v1
+    
+      # Runs if matrix.scheme is set to default
+      # Finds the first listed scheme
+    - name: Set Default Scheme
+      if: matrix.scheme == 'default'
+      run: |
+        scheme_list=$(xcodebuild -list -json | tr -d "\n")
+        default=$(echo $scheme_list | ruby -e "require 'json'; puts JSON.parse(STDIN.gets)['project']['targets'][0]")
+        echo $default | cat >default
+        echo Using default scheme: $default
+        
+    - name: Destinations
+
+      run: instruments -s devices
+    
+    - name: Build
+      env:
+        scheme: ${{ matrix.scheme }}
+        platform: ${{ matrix.platform }}
+        device: ${{ matrix.device }}
+      run: |
+        if [ $scheme = default ]; then scheme=$(cat default); fi
+        xcodebuild build-for-testing -scheme $scheme -destination "platform=$platform,name=$device"
+        
+    - name: Test
+      env:
+        scheme: ${{ matrix.scheme }}
+        platform: ${{ matrix.platform }}
+        device: ${{ matrix.device }}
+      run: |
+        if [ $scheme = default ]; then scheme=$(cat default); fi
+        set -o pipefail && xcodebuild test-without-building -scheme $scheme -testPlan $scheme -destination "platform=$platform,name=$device" | xcpretty --color --report html --output TestReports/report.html
     - name: Test Reports
       if: failure()
       uses: actions/upload-artifact@v1
       with:
           name: testReports
           path: TestReports
-
